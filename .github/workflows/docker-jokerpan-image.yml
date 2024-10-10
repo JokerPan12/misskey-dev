@@ -1,0 +1,24 @@
+name: JokerPan Docker Image CI
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag misskey:jokerpan-latest
+    - name: Login to registry
+      run: docker login ccr.ccs.tencentyun.com --username=${{ secrets.TENCENTYUN_USERNAME }} --password=${{ secrets.TENCENTYUN_PASSWORD }}
+    - name: Tag Image
+      run: docker tag misskey:jokerpan-latest ${{ secrets.TENCENTYUN_IMAGE_WAREHOUSE }}:jokerpan-latest
+    - name: Push Image
+      run: docker push ${{ secrets.TENCENTYUN_IMAGE_WAREHOUSE }}:jokerpan-latest
