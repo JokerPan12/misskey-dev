@@ -15,10 +15,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag misskey:jokerpan-latest
+      run: docker build . --file Dockerfile --tag misskey:jokerpan-latest-2024-10-10
     - name: Login to registry
       run: docker login ccr.ccs.tencentyun.com --username=${{ secrets.TENCENTYUN_USERNAME }} --password=${{ secrets.TENCENTYUN_PASSWORD }}
     - name: Tag Image
-      run: docker tag misskey:jokerpan-latest ${{ secrets.TENCENTYUN_IMAGE_WAREHOUSE }}:jokerpan-latest
+      run: docker tag misskey:jokerpan-latest-2024-10-10 ${{ secrets.TENCENTYUN_IMAGE_WAREHOUSE }}:jokerpan-latest-2024-10-10
     - name: Push Image
-      run: docker push ${{ secrets.TENCENTYUN_IMAGE_WAREHOUSE }}:jokerpan-latest
+      run: docker push ${{ secrets.TENCENTYUN_IMAGE_WAREHOUSE }}:jokerpan-latest-2024-10-10
