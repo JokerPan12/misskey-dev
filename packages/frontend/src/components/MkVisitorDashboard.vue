@@ -46,7 +46,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 	<div :class="$style.panel">
 		<XActiveUsersChart/>
 	</div>
-	<div style="text-align: center; position: absolute">
+	<div style="text-align: center;">
 		<a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2023017034号-2</a>
 	</div>
 </div>
