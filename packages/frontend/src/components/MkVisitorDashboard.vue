@@ -23,7 +23,6 @@ SPDX-License-Identifier: AGPL-3.0-only
 			</div>
 			<div class="_gaps_s" :class="$style.mainActions">
 				<MkButton :class="$style.mainAction" full rounded gradate data-cy-signup style="margin-right: 12px;" @click="signup()">{{ i18n.ts.joinThisServer }}</MkButton>
-				<MkButton :class="$style.mainAction" full rounded link to="https://misskey-hub.net/servers/">{{ i18n.ts.exploreOtherServers }}</MkButton>
 				<MkButton :class="$style.mainAction" full rounded data-cy-signin @click="signin()">{{ i18n.ts.login }}</MkButton>
 			</div>
 		</div>
@@ -46,6 +45,9 @@ SPDX-License-Identifier: AGPL-3.0-only
 	</div>
 	<div :class="$style.panel">
 		<XActiveUsersChart/>
+	</div>
+	<div style="text-align: center; position: absolute">
+		<a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2023017034号-2</a>
 	</div>
 </div>
 </template>
